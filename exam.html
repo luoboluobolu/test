@@ -1,0 +1,109 @@
+<!-- web_exam.html -->
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+	<title>银河系爱好者测试</title>
+		<style type="text/css">
+		  div{width:720px;height:680px;
+		  }	
+		  .button{width:120px;height:45px;font-size:24px;}
+		  table{width:720px;height:680px;text-align:left;}
+          .tr_radio{height:100px;font-size:18px;}
+		  .td_tg{color:#000099;font-style:bold;}
+		  input{padding:0 15px;}
+		</style>
+    <script type="text/javascript">
+    <!--
+		function checkResult(){
+           //评判成绩，5题100分，每题20分。
+           var sum=0;                   //保存累加和
+           var sel_radio=new Array(1);  //保存用户选择的答案
+           var right_answer=new Array("D","ABCD")
+           var str=document.getElementsByName("box")
+           var objarray=str.length;
+   		   var chestr="";
+           //计算每题分数
+           for (j=1; j<=2; j++)
+           {
+              switch (j){
+              case 1: {obj=document.forms[0].r1;}break;
+              default: {
+              	 for (i=0;i<objarray;i++)
+              	 {
+              	if(str[i].checked == true)
+    				{
+    				chestr+=str[i].value;
+    				}
+    			}
+              		sel_radio[1]=chestr;}break;
+               }         
+                 for (i=0;i<=obj.length-1; i++ )
+               {
+                  if (obj[i].checked&&j!=2)
+                  {sel_radio[j-1]=obj[i].value;
+				  }                 
+               }                 
+           }
+          //计算总分
+           for (i=0; i<=1; i++)
+           {
+		     if (sel_radio[i]==right_answer[i]){ sum=sum+50;}             
+           }       
+           alert("您选择的答案是：\n"+sel_radio.join("-")+"\n"+"您的最终得分是："+sum);
+     }
+    //-->
+    </script>
+	</head>
+	<body>
+     <div id="" class="">
+		<form method="post" action="">
+		    <h3 align="center">银河系爱好者测验[单选题]</h3>
+			<hr color="#227cb2" size=30px>
+			<table>			
+			<tr>
+				<td>
+				<table class="tr_radio" >
+				<tr>
+					<td class="td_tg">1.太阳系不包括的是（      ）。</td>
+				</tr>
+				<tr><td><input type="radio" name="r1" value="A">A.金星</td></tr>
+				<tr>
+					<td><input type="radio" name="r1" value="B">B.土星</td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="r1" value="C">C.水星</td>
+    <tr><td><input type="radio" name="r1" value="D">D.冥王星</td>
+				</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table class="tr_radio">
+				<tr>
+					<td class="td_tg">2.银河经过25个星座包括（ ）。</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="box"  id="box1" value="A">A.天鹅座</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="box"  id="box2" value="B" checked="checked">B.狐狸座</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="box"  id="box3" value="C">C.天箭座</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="box"  id="box4" value="D">D.金牛座</td>
+				</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td align="center"><input class="button" type="button" value="提交" onclick="checkResult();">&nbsp;&nbsp;<input class="button" type="reset" value="重置"> </td>
+			</tr>
+			</table>
+		</form>
+     </div>
+	</body>
+</html>
